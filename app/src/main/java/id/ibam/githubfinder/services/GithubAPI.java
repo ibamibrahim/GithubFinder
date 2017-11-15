@@ -1,13 +1,12 @@
 package id.ibam.githubfinder.services;
 
-import java.util.List;
-
 import id.ibam.githubfinder.services.model.UserDetailResponse;
 import id.ibam.githubfinder.services.model.repo.UserReposResponse;
 import id.ibam.githubfinder.services.model.userlist.UsersListResponse;
 import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -16,10 +15,10 @@ import rx.Observable;
 
 public interface GithubAPI {
 
-    @GET("users/{name}")
-    Observable<Response<List<UsersListResponse>>> getUsers(@Path("name") String name);
+    @GET("/search/users")
+    Observable<Response<UsersListResponse>> getUsers(@Query("q") String name);
 
-    @GET("/search/users?q={name}")
+    @GET("users/{name}")
     Observable<Response<UserDetailResponse>> getDetail(@Path("name") String name);
 
     @GET("users/{name}/repos")

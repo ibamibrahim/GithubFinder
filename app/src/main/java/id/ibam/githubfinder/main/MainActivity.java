@@ -2,13 +2,15 @@ package id.ibam.githubfinder.main;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import java.util.List;
+
+import id.ibam.githubfinder.BaseActivity;
 import id.ibam.githubfinder.MvpView;
 import id.ibam.githubfinder.R;
 
@@ -16,13 +18,23 @@ import id.ibam.githubfinder.R;
  * Created by Ibam on 11/15/2017.
  */
 
-public class MainActivity extends AppCompatActivity implements MvpView, MainActivityContract.Presenter {
+public class MainActivity extends BaseActivity implements MvpView, MainActivityContract.View {
+
+    private static final String TAG = "MainActivity";
+    MainActivityPresenter mPresenter;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initPresenter();
     }
+
+    private void initPresenter() {
+        mPresenter = new MainActivityPresenter();
+        mPresenter.onAttach(this);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -35,7 +47,8 @@ public class MainActivity extends AppCompatActivity implements MvpView, MainActi
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-                Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
+                showProgressDialog("Loading...");
+                mPresenter.getUserLists(s);
                 return false;
             }
 
@@ -45,6 +58,12 @@ public class MainActivity extends AppCompatActivity implements MvpView, MainActi
             }
         });
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public void showUserList(List<String> list) {
+        hideDialog();
+        Toast.makeText(this, list.toString(), Toast.LENGTH_SHORT).show();
     }
 }
 
