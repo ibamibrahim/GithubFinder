@@ -1,18 +1,18 @@
 package id.ibam.githubfinder.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import id.ibam.githubfinder.R;
+import id.ibam.githubfinder.detail.DetailActivity;
 
 import static android.support.v7.widget.RecyclerView.NO_POSITION;
 
@@ -67,7 +67,8 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.Custom
                     if (getAdapterPosition() != NO_POSITION) {
                         Context c = view.getContext();
                         String name = userList.get(getAdapterPosition());
-                        Toast.makeText(c, name, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(c, DetailActivity.class);
+                        c.startActivity(intent);
                     }
                 }
             });
