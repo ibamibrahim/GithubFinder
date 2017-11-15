@@ -11,6 +11,6 @@ public class MainActivityContract {
     }
 
     interface Presenter{
-
+        void getUserLists(String name);
     }
 }
