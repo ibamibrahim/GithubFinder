@@ -2,11 +2,12 @@ package id.ibam.githubfinder.main;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -22,12 +23,15 @@ public class MainActivity extends BaseActivity implements MvpView, MainActivityC
 
     private static final String TAG = "MainActivity";
     MainActivityPresenter mPresenter;
+    RecyclerView recyclerView;
+    UserListAdapter adapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initPresenter();
+        initRV();
     }
 
     private void initPresenter() {
@@ -35,6 +39,14 @@ public class MainActivity extends BaseActivity implements MvpView, MainActivityC
         mPresenter.onAttach(this);
     }
 
+    private void initRV() {
+        recyclerView = (RecyclerView) findViewById(R.id.userlist_rv);
+        adapter = new UserListAdapter(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -63,7 +75,8 @@ public class MainActivity extends BaseActivity implements MvpView, MainActivityC
     @Override
     public void showUserList(List<String> list) {
         hideDialog();
-        Toast.makeText(this, list.toString(), Toast.LENGTH_SHORT).show();
+        adapter.setDataSet(list);
+        adapter.notifyDataSetChanged();
     }
 }
 
