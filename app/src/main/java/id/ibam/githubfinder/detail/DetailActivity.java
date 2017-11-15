@@ -3,16 +3,26 @@ package id.ibam.githubfinder.detail;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 
+import id.ibam.githubfinder.BaseActivity;
+import id.ibam.githubfinder.MvpView;
 import id.ibam.githubfinder.R;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity extends BaseActivity implements MvpView, DetailContract.View {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        initViewPagerAndTabs();
+    }
+
+    @Override
+    public void loadComplete() {
+
+    }
+
+    private void initViewPagerAndTabs() {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Overview"));
         tabLayout.addTab(tabLayout.newTab().setText("Repositories"));
@@ -39,5 +49,6 @@ public class DetailActivity extends AppCompatActivity {
 
             }
         });
+
     }
 }
