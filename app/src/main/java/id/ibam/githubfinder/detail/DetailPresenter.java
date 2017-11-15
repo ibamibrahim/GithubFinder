@@ -2,12 +2,12 @@ package id.ibam.githubfinder.detail;
 
 import id.ibam.githubfinder.BasePresenter;
 import id.ibam.githubfinder.MvpView;
-
 /**
  * Created by Ibam on 11/15/2017.
  */
 
 public class DetailPresenter extends BasePresenter implements DetailContract.Presenter {
+    private static final String TAG = "DetailPresenter";
 
     DetailContract.View mView;
 
@@ -18,12 +18,12 @@ public class DetailPresenter extends BasePresenter implements DetailContract.Pre
     }
 
     @Override
-    public void loadRepos(String name) {
+    public void loadUserDetail() {
 
     }
 
     @Override
-    public void userDetail(String name) {
+    public void loadUserRepos() {
 
     }
 }

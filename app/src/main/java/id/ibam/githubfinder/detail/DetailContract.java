@@ -10,8 +10,9 @@ public class DetailContract {
     }
 
     interface Presenter {
-        void loadRepos(String name);
+        void loadUserDetail();
 
-        void userDetail(String name);
+        void loadUserRepos();
     }
+
 }

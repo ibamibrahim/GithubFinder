@@ -4,8 +4,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+<<<<<<< HEAD
 import id.ibam.githubfinder.detail.fragment.OverviewFragment;
 import id.ibam.githubfinder.detail.fragment.RepoListFragment;
+=======
+import id.ibam.githubfinder.detail.overview.OverviewFragment;
+import id.ibam.githubfinder.detail.repolist.RepoListFragment;
+>>>>>>> 0521c036116e570fe3ff2089b6302e79a614022c
 
 /**
  * Created by Ibam on 11/15/2017.
