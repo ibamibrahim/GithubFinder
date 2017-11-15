@@ -1,4 +1,4 @@
-package id.ibam.githubfinder.detail;
+package id.ibam.githubfinder.detail.repolist;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

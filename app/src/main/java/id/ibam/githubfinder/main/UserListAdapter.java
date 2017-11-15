@@ -68,6 +68,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.Custom
                         Context c = view.getContext();
                         String name = userList.get(getAdapterPosition());
                         Intent intent = new Intent(c, DetailActivity.class);
+                        intent.putExtra("name", name);
                         c.startActivity(intent);
                     }
                 }
