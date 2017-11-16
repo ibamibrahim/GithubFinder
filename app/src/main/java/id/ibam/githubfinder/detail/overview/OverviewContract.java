@@ -12,6 +12,6 @@ public interface OverviewContract {
     }
 
     interface Presenter {
-        void getUserOverview(UserDetailResponse data);
+        void getUserOverview(String name);
     }
 }
