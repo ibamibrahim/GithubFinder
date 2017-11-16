@@ -5,14 +5,12 @@ package id.ibam.githubfinder.detail;
  */
 
 public class DetailContract {
-    interface View {
+
+    public interface View {
         void loadComplete();
     }
 
-    interface Presenter {
-        void loadUserDetail();
-
-        void loadUserRepos();
+    public interface Presenter {
     }
 
 }

@@ -1,7 +1,6 @@
 package id.ibam.githubfinder.services;
 
-import java.util.List;
-
+import id.ibam.githubfinder.services.model.UserDetailResponse;
 import id.ibam.githubfinder.services.model.userlist.UsersListResponse;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -21,6 +20,11 @@ public class RemoteServices {
     public Observable<Response<UsersListResponse>> getUser(String name) {
         initRetrofit();
         return retrofit.getUsers(name);
+    }
+
+    public Observable<Response<UserDetailResponse>> getDetail(String name) {
+        initRetrofit();
+        return retrofit.getDetail(name);
     }
 
     private void initRetrofit() {

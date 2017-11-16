@@ -2,6 +2,7 @@ package id.ibam.githubfinder.detail;
 
 import id.ibam.githubfinder.BasePresenter;
 import id.ibam.githubfinder.MvpView;
+
 /**
  * Created by Ibam on 11/15/2017.
  */
@@ -15,15 +16,5 @@ public class DetailPresenter extends BasePresenter implements DetailContract.Pre
     public void onAttach(MvpView mvpView) {
         super.onAttach(mvpView);
         this.mView = (DetailContract.View) mvpView;
-    }
-
-    @Override
-    public void loadUserDetail() {
-
-    }
-
-    @Override
-    public void loadUserRepos() {
-
     }
 }

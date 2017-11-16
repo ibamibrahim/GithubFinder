@@ -15,6 +15,6 @@ public interface RepoListContract {
     }
 
     interface Presenter {
-        void getData(List<UserReposResponse> data);
+        void getData(String name);
     }
 }
