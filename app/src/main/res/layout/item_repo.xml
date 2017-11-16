@@ -19,64 +19,93 @@
         android:layout_marginTop="4dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            
-            android:src="@drawable/ic_star"/>
-
-        <TextView
-            android:id="@+id/star_count"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            
-            android:text="22"/>
+            android:layout_weight=".25"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginLeft="8dp"
-            
-            android:src="@drawable/ic_fork"/>
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
 
-        <TextView
-            android:id="@+id/fork_count"
+                android:src="@drawable/ic_star"/>
+
+            <TextView
+                android:id="@+id/star_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+
+                android:text="22"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            
-            android:text="22"/>
+            android:layout_weight=".25"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginLeft="8dp"
-            
-            android:src="@drawable/ic_clock"/>
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginLeft="8dp"
 
-        <TextView
-            android:id="@+id/repo_date"
+                android:src="@drawable/ic_fork"/>
+
+            <TextView
+                android:id="@+id/fork_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+
+                android:text="22"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            
-            android:text="Oct 15, 2018"/>
+            android:layout_weight=".25"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginLeft="8dp"
-            
-            android:src="@drawable/ic_filesize"/>
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginLeft="8dp"
 
-        <TextView
-            android:id="@+id/repo_size"
+                android:src="@drawable/ic_clock"/>
+
+            <TextView
+                android:id="@+id/repo_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+
+                android:text="Oct 15, 2018"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            
-            android:text="223 Kb"/>
+            android:layout_weight=".25"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginLeft="8dp"
+
+                android:src="@drawable/ic_filesize"/>
+
+            <TextView
+                android:id="@+id/repo_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+
+                android:text="223 Kb"/>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

@@ -89,6 +89,6 @@ public class OverviewFragment extends Fragment implements MvpView, OverviewContr
         following.setText("FOLLOWINGS (" + data.getFollowing() + ")");
         location.setText(data.getLocation());
         link.setText(data.getBlog());
-        dateJoined.setText(data.getCreatedAt());
+        dateJoined.setText(data.getCreatedAt().substring(0, 10));
     }
 }

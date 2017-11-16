@@ -7,7 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -25,11 +27,13 @@ public class MainActivity extends BaseActivity implements MvpView, MainActivityC
     MainActivityPresenter mPresenter;
     RecyclerView recyclerView;
     UserListAdapter adapter;
+    TextView status;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        status = (TextView) findViewById(R.id.status);
         initPresenter();
         initRV();
     }
@@ -75,6 +79,12 @@ public class MainActivity extends BaseActivity implements MvpView, MainActivityC
     @Override
     public void showUserList(List<String> list) {
         hideDialog();
+        if (list.size() != 0) {
+            status.setVisibility(View.GONE);
+        } else {
+            status.setVisibility(View.VISIBLE);
+            status.setText("No user found");
+        }
         adapter.setDataSet(list);
         adapter.notifyDataSetChanged();
     }
