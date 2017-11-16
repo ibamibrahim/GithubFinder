@@ -11,7 +11,7 @@ import id.ibam.githubfinder.services.model.repo.UserReposResponse;
 
 public interface RepoListContract {
     interface View {
-        void showData(List<UserReposData> data);
+        void showData(List<UserReposResponse> data);
     }
 
     interface Presenter {

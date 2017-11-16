@@ -45,7 +45,7 @@ public class RepoListAdapter extends RecyclerView.Adapter<RepoListAdapter.Custom
         holder.name.setText(item.getName());
         holder.star.setText(item.getStargazersCount() + "");
         holder.fork.setText(item.getForksCount() + "");
-        holder.date.setText(item.getCreatedAt() + "");
+        holder.date.setText(item.getCreatedAt().substring(0, 10) + "");
         holder.size.setText(item.getSize() + " Kb");
 
     }

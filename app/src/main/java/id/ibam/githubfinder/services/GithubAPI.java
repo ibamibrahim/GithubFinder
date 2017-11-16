@@ -1,5 +1,7 @@
 package id.ibam.githubfinder.services;
 
+import java.util.List;
+
 import id.ibam.githubfinder.services.model.UserDetailResponse;
 import id.ibam.githubfinder.services.model.repo.UserReposResponse;
 import id.ibam.githubfinder.services.model.userlist.UsersListResponse;
@@ -22,7 +24,7 @@ public interface GithubAPI {
     Observable<Response<UserDetailResponse>> getDetail(@Path("name") String name);
 
     @GET("users/{name}/repos")
-    Observable<Response<UserReposResponse>> getRepos(@Path("name") String name);
+    Observable<Response<List<UserReposResponse>>> getRepos(@Path("name") String name);
 
 
 }

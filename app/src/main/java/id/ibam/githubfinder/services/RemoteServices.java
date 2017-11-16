@@ -1,6 +1,9 @@
 package id.ibam.githubfinder.services;
 
+import java.util.List;
+
 import id.ibam.githubfinder.services.model.UserDetailResponse;
+import id.ibam.githubfinder.services.model.repo.UserReposResponse;
 import id.ibam.githubfinder.services.model.userlist.UsersListResponse;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -26,6 +29,12 @@ public class RemoteServices {
         initRetrofit();
         return retrofit.getDetail(name);
     }
+
+    public Observable<Response<List<UserReposResponse>>> getRepos(String name) {
+        initRetrofit();
+        return retrofit.getRepos(name);
+    }
+
 
     private void initRetrofit() {
         this.retrofit = getRetrofit(BASE_URL);
